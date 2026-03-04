@@ -1,35 +1,20 @@
-name: Metrics
-on:
-  schedule: [{cron: "0 0 * * *"}]
-  workflow_dispatch:
-  push: {branches: ["main"]}
+- uses: lowlighter/metrics@v3.9
+  with:
+    token: ${{ secrets.METRICS_TOKEN }}
+    user: YOUR_USERNAME
 
-jobs:
-  github-metrics:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: lowlighter/metrics@v3.9
-        with:
-          token: ${{ secrets.METRICS_TOKEN }}
+    # Base sections
+    base: header, activity, community, repositories, metadata
 
-          # Core
-          user: Christoph
-          template: classic
-          base: header, activity, community, repositories, metadata
+    # Contributions calendar
+    plugin_isocalendar: yes
+    plugin_isocalendar_duration: full-year
 
-          # Contributions calendar
-          plugin_calendar: yes
-          plugin_calendar_limit: 1
+    # Languages
+    plugin_languages: yes
+    plugin_languages_limit: 8
+    plugin_languages_details: percentage
 
-          # Languages
-          plugin_languages: yes
-          plugin_languages_sections: most-used
-          plugin_languages_limit: 8
-
-          # Streak
-          plugin_isocalendar: yes
-
-          # Achievements
-          plugin_achievements: yes
+    # Achievements
+    plugin_achievements: yes
+    plugin_achievements_limit: 10
