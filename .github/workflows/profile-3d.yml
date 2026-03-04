@@ -34,7 +34,3 @@ jobs:
           plugin_languages: yes
           plugin_languages_limit: 8
           plugin_languages_details: percentage
-
-          # Achievements
-          plugin_achievements: yes
-          plugin_achievements_limit: 10
