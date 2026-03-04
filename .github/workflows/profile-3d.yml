@@ -18,8 +18,6 @@ jobs:
 
           # Layout
           template: classic
-          config_theme: dark
-          config_display: columns
 
           # Base sections
           base: header, activity, community, repositories, metadata
